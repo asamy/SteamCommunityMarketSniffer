@@ -27,7 +27,6 @@ import urllib.error
 import sys
 import re
 import getopt
-import threading
 
 from time import sleep
 from html.parser import HTMLParser
