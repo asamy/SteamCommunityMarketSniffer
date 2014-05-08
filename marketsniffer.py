@@ -51,7 +51,7 @@ class MarketParser(HTMLParser):
 			for name, value in attrs:
 				if name == "class" and value == "market_listing_row_link":
 					foundItemListing = True
-				elif foundItemListing:
+				elif foundItemListing and name == "href":
 					self.current_item_url = value
 		elif tag == "span":
 			for name, value in attrs:
