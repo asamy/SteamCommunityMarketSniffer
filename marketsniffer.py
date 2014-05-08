@@ -41,9 +41,10 @@ class MarketParser(HTMLParser):
 		self.current_item_url = ""
 
 	def handle_data(self, data):
-		price = re.search(r'\d+.\d+', data)
-		if self.foundItem and price != None:
-			self.items.append((self.current_item_url, float(price.group(0))))
+		if self.foundItem:
+			price = re.search(r'\d+.\d+', data)
+			if price != None:
+				self.items.append((self.current_item_url, float(price.group(0))))
 
 	def handle_starttag(self, tag, attrs):
 		if tag == 'a':
